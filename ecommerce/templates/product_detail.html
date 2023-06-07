@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<!--Main layout-->
+<main class="mt-5 pt-4">
+    <div class="container mt-5">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <img src="{{ object.gambar.url }}" class="img-fluid" alt="" />
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <!--Content-->
+                <div class="p-4">
+                    <div class="mb-3">
+                        <a href="">
+                            <span class="badge bg-dark me-1">{{ object.get_kategori_display }}</span>
+                        </a>
+                        {% if object.label == 'NEW' %}
+                        <a href="">
+                            <span class="badge bg-{{ object.get_label_display }} me-1">NEW</span>
+                        </a>
+                        {% elif object.label == 'SALE' %}
+                        <a href="">
+                            <span class="badge bg-{{ object.get_label_display }} me-1">Sale</span>
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <span class="badge bg-{{ object.get_label_display }} me-1">Bestseller</span>
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <p class="lead">
+                        {% if object.harga_diskon %}
+                        <span class="me-1">
+                            <del>${{ object.harga }}</del>
+                        </span>
+                        <span>${{ object.harga_diskon }}</span>
+                        {% else %}
+                        <span>${{ object.harga }}</span>
+                        {% endif %}
+                    </p>
+
+                    <strong><p style="font-size: 20px;">Deskripsi</p></strong>
+
+                    <p>{{ object.deskripsi }}</p>
+                    <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary ms-1">
+                        Tambah ke keranjang
+                        <i class="fas fa-shopping-cart ms-1"></i>
+                    </a>
+                    <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger ms-1" >
+                        Kurangi keranjang
+                        <i class="fas fa-shopping-cart ms-1"></i>
+                    </a>
+                </div>
+                <!--Content-->
+            </div>
+            <!--Grid column-->
+        </div>
+
+            <hr />
+
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
+                <!--Grid column-->
+                <div class="col-md-6 text-center">
+                    <h4 class="my-4 h4">Additional Information</h4>
+
+                    <p>Kami sangat menjaga standar pengemasan yang tinggi untuk setiap produk yang Anda pesan. Produk akan dikemas dengan hati-hati menggunakan bahan kemasan yang aman dan berkualitas untuk melindungi produk selama proses pengiriman. Kami bekerja sama dengan penyedia jasa pengiriman terpercaya untuk memastikan produk Anda sampai dengan selamat dan tepat waktu. Namun, jika Anda mengalami masalah dengan produk yang Anda terima, kami akan dengan senang hati membantu Anda menyelesaikan masalah tersebut. Silakan hubungi tim layanan pelanggan kami dan berikan detail lengkap mengenai keluhan Anda, serta nomor pesanan Anda, agar kami dapat memberikan solusi yang memuaskan. Kepuasan pelanggan adalah prioritas kami, dan kami berkomitmen untuk memberikan pengalaman belanja yang menyenangkan dan memuaskan di toko kami.</p>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <img src="https://img.freepik.com/free-photo/internationals-people-standing-cafe-drinking-cocktails_1157-32338.jpg?t=st=1686110374~exp=1686110974~hmac=1637e46f75325e55c6b0e61223a35dbe0bdaabcf5da857b7bc1964c304e63fbd" class="img-fluid" alt="" />
+                </div>
+                <!--Grid column-->
+            
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <img src="https://img.freepik.com/premium-photo/horizontal-medium-long-portrait-young-ethnically-diverse-friends-wearing-casual-outfits-standing-together-against-gray-brick-building-looking-camera_249974-10235.jpg" class="img-fluid" alt="" />
+                </div>
+                <!--Grid column-->
+            
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <img src="https://img.freepik.com/free-photo/best-friends-having-fun-while-talking-each-other_23-2148133981.jpg?t=st=1686110374~exp=1686110974~hmac=c0581169c935e06a8a4ea7006c43b3e69f4b9cdd9e494e6de6d2c9251b1326ce" class="img-fluid" alt="" />
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+</main>
+<!--Main layout-->
+{% endblock content%}
